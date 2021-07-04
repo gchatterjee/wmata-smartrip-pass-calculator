@@ -1,61 +1,25 @@
 {
-  "name": "react-static-github-pages",
+  "name": "wmata-smartrip-pass-calculator",
   "version": "1.0.0",
-  "description": "a template for static GitHub Pages in React",
+  "description": "calculator to figure out which SmarTrip pass you should get",
   "main": "docs/index.js",
+  "directories": {
+    "doc": "docs"
+  },
   "scripts": {
-    "lint": "prettier --check . && eslint '**/*.{ts,tsx}'",
-    "lint:fix": "prettier --write . && eslint --fix '**/*.{ts,tsx}'",
-    "test": "echo 'set up some tests!'",
-    "build": "webpack --mode=development",
-    "build:prod": "webpack --mode=production",
     "prepare": "husky install"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gchatterjee/react-static-github-pages.git"
+    "url": "git+https://github.com/gchatterjee/wmata-smartrip-pass-calculator.git"
   },
-  "keywords": [
-    "template",
-    "react",
-    "github-pages"
-  ],
   "author": "gchatterjee",
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/gchatterjee/react-static-github-pages/issues"
+    "url": "https://github.com/gchatterjee/wmata-smartrip-pass-calculator/issues"
   },
-  "homepage": "https://github.com/gchatterjee/react-static-github-pages#readme",
+  "homepage": "https://github.com/gchatterjee/wmata-smartrip-pass-calculator#readme",
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@babel/preset-env": "^7.14.7",
-    "@babel/preset-react": "^7.14.5",
-    "@babel/register": "^7.14.5",
-    "@types/prop-types": "^15.7.3",
-    "@types/react": "^17.0.11",
-    "@types/react-dom": "^17.0.8",
-    "@types/react-router-dom": "^5.1.7",
-    "@typescript-eslint/eslint-plugin": "^4.28.1",
-    "@typescript-eslint/parser": "^4.28.1",
-    "babel-loader": "^8.2.2",
-    "eslint": "^7.29.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-airbnb-typescript": "^12.3.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^7.0.0",
-    "prettier": "^2.3.2",
-    "ts-loader": "^9.2.3",
-    "typescript": "^4.3.4",
-    "webpack": "^5.41.1",
-    "webpack-cli": "^4.7.2"
-  },
-  "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0"
+    "husky": "^7.0.0"
   }
 }

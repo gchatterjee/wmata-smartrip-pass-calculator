@@ -4,7 +4,7 @@ on:
   push:
   workflow_dispatch:
   schedule:
-    - cron: '0 7 * * *'
+    - cron: "0 7 * * *"
 
 jobs:
   scheduled:
@@ -25,8 +25,10 @@ jobs:
 
       - name: Build Website
         run: |-
+          cd web
           npm ci
           npm run build:prod
+          cd -
 
       - name: Commit and push if it changed
         run: |-
