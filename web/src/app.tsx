@@ -12,7 +12,7 @@ export default function App() {
   const [defaultUrl] = PAGE_KEYS
   const defaultRoute = `/${defaultUrl || NOT_FOUND_KEY}`
   const notFoundRoute = `/${NOT_FOUND_KEY}`
-  const PUBLIC_URL = '/react-static-github-pages' // change this to your repo name
+  const PUBLIC_URL = '/wmata-smartrip-pass-calculator'
 
   return (
     <div className='container'>

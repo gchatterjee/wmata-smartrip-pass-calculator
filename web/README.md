@@ -1,1 +1,0 @@
-# react-static-github-pages
