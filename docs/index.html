@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="create using gchatterjee's starter template"
+    />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <title>React App</title>
+    <!-- Start Single Page Apps for GitHub Pages -->
+    <script type="text/javascript">
+      const { location: l } = window
+      if (l.search) {
+        const query = {}
+        l.search
+          .slice(1)
+          .split('&')
+          .forEach(v => {
+            const a = v.split('=')
+            query[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&')
+          })
+        if (query.p !== undefined)
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) +
+              (query.p || '') +
+              (query.q ? '?' + query.q : '') +
+              l.hash
+          )
+      }
+    </script>
+    <!-- End Single Page Apps for GitHub Pages -->
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script src="./index.js"></script>
+  </body>
+</html>
