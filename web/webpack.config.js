@@ -7,7 +7,11 @@ module.exports = {
       {
         test: /\.ts(x?)$/,
         exclude: /node_modules/,
-        use: [{ loader: 'babel-loader' }, { loader: 'ts-loader' }],
+        use: ['babel-loader', 'ts-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
@@ -17,8 +21,9 @@ module.exports = {
     path: path.resolve(__dirname, '../docs'),
   },
   devServer: {
-    contentBase: path.join(__dirname, '../docs'),
+    static: path.join(__dirname, '../docs'),
     compress: true,
     port: 9000,
   },
+  mode: 'development',
 }
