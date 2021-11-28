@@ -1,37 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { TITLE } from '../../../../app.constant'
 import RecurringMetroTripPanel from './trip-panel/RecurringMetroTripPanel'
 
-interface Props {}
-interface State {
-  loading: boolean
-  stations?: Record<string, Station>
-}
+export default function Home(): JSX.Element {
+  const [stations, setStations] = useState<Record<string, Station> | undefined>()
 
-export default class Home extends React.PureComponent<Props, State> {
-  constructor(props: Props) {
-    super(props)
-    this.state = { loading: true }
-    this.getStations()
-  }
+  useEffect(() => {
+    const getStations = async () => {
+      const { default: stationList } = await import(
+        '../../../../data/station-list-transformed.json'
+      )
+      setStations(stationList)
+    }
+    getStations()
+  }, [])
 
-  async getStations() {
-    const { default: stations } = await import('../../../../data/station-list-transformed.json')
-    this.setState({ loading: false, stations })
-  }
-
-  render() {
-    const { loading, stations } = this.state
-    return loading ? (
-      <div>loading...</div>
-    ) : (
-      <>
-        <h1>{TITLE}</h1>
-        {/* <MonthChooser />
-      this component will allow the user to choose a month */}
-        <RecurringMetroTripPanel stations={stations || {}} />
-      </>
-    )
-  }
+  return stations ? (
+    <>
+      <h1>{TITLE}</h1>
+      {/* <MonthChooser />
+  this component will allow the user to choose a month */}
+      <RecurringMetroTripPanel stations={stations || {}} />
+    </>
+  ) : (
+    <div>loading...</div>
+  )
 }

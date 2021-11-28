@@ -1,45 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import TimePicker from '@mui/lab/TimePicker'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
 import AdapterDateFns from '@mui/lab/AdapterMoment'
-import { Moment } from 'moment'
+import moment, { Moment } from 'moment'
 
 interface Props {
-  onChange?: (time: { hour: number; minute: number }) => void
+  onChange?: (time: Moment) => void
 }
 
-interface State {
-  moment?: Moment
-}
+export default function BasicTimePicker({ onChange = () => {} }: Props): JSX.Element {
+  const [time, setTime] = useState<Moment>(moment())
 
-export default class BasicTimePicker extends React.PureComponent<Props, State> {
-  constructor(props: Props) {
-    super(props)
-    this.state = {}
+  const update = (newTime: Moment) => {
+    setTime(newTime)
+    onChange(newTime)
   }
 
-  update(moment?: Moment) {
-    const { onChange } = this.props
-    this.setState({ moment })
-    if (onChange && moment) onChange({ hour: moment?.hour(), minute: moment?.minute() })
-  }
-
-  render() {
-    const { moment } = this.state
-
-    return (
-      <div className='form-item'>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <TimePicker
-            label='time'
-            value={moment}
-            onChange={newMoment => this.update(newMoment || undefined)}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            renderInput={params => <TextField {...params} />}
-          />
-        </LocalizationProvider>
-      </div>
-    )
-  }
+  return (
+    <div className='form-item'>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <TimePicker
+          label='time'
+          value={time}
+          onChange={(newTime) => update(newTime || moment())}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          renderInput={params => <TextField {...params} />}
+        />
+      </LocalizationProvider>
+    </div>
+  )
 }

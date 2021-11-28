@@ -7,5 +7,6 @@
     "ecmaVersion": 12,
     "sourceType": "module",
     "project": ["tsconfig.json"]
-  }
+  },
+  "rules": { "react/function-component-definition": [0], "react/require-default-props": [0] }
 }
